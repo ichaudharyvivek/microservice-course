@@ -7,7 +7,7 @@ const config = {
     QUERY_SERVICE:
       '4002-ichaudharyv-microservic-5gdh78ogrj9.ws-us110.gitpod.io',
     MODERATION_SERVICE:
-      '4002-ichaudharyv-microservic-5gdh78ogrj9.ws-us110.gitpod.io',
+      '4003-ichaudharyv-microservic-5gdh78ogrj9.ws-us110.gitpod.io',
   },
 };
 
