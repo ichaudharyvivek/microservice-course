@@ -9,8 +9,28 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded(true));
 
-app.post('/events', (req, res) => {
-  console.log('Received Events: ', req.body.type);
+app.post('/events', async (req, res) => {
+  const { type, data } = req.body;
+
+  switch (type) {
+    case 'CommentCreated':
+      const status = data.content.includes('orange') ? 'rejected' : 'approved';
+
+      await axios.post(`https://${config.services.EVENT_BUS}/events`, {
+        type: 'CommentModerated',
+        data: {
+          id: data.id,
+          postId: data.postId,
+          content: data.content,
+          status,
+        },
+      });
+      break;
+
+    default:
+      break;
+  }
+
   res.send({});
 });
 

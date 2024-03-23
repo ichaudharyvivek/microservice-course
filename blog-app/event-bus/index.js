@@ -23,6 +23,10 @@ app.post('/events', (req, res) => {
     .post(`https://${config.services.QUERY_SERVICE}/events`, event)
     .catch((err) => console.log(err));
 
+  axios
+    .post(`https://${config.services.MODERATION_SERVICE}/events`, event)
+    .catch((err) => console.log(err));
+
   res.status(200).json({ status: 'OK' });
 });
 
