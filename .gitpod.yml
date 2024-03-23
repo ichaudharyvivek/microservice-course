@@ -1,22 +1,28 @@
 # List the start up tasks. Learn more: https://www.gitpod.io/docs/configure/workspaces/tasks
 tasks:
   - name: client
-    command: cd blog-app/client && npm start
+    init: cd blog-app/client && npm i
+    command: npm start
 
   - name: post service
-    command: cd blog-app/posts && npm start
+    init: cd blog-app/posts && npm i
+    command: npm start
 
   - name: comments service
-    command: cd blog-app/comments && npm start
+    init: cd blog-app/comments && npm i
+    command: npm start
 
   - name: query service
-    command: cd blog-app/query && npm start
+    init: cd blog-app/query && npm i
+    command: npm start
 
   - name: moderation service
-    command: cd blog-app/moderation && npm start
+    init: cd blog-app/moderation && npm i
+    command: npm start
 
   - name: event-bus service
-    command: cd blog-app/event-bus && npm start
+    init: cd blog-app/event-bus && npm i
+    command: npm start
 
 # List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
 ports:
