@@ -12,23 +12,18 @@ app.use(express.urlencoded(true));
 app.post('/events', async (req, res) => {
   const { type, data } = req.body;
 
-  switch (type) {
-    case 'CommentCreated':
-      const status = data.content.includes('orange') ? 'rejected' : 'approved';
+  if (type === 'CommentCreated') {
+    const status = data.content.includes('orange') ? 'rejected' : 'approved';
 
-      await axios.post(`https://${config.services.EVENT_BUS}/events`, {
-        type: 'CommentModerated',
-        data: {
-          id: data.id,
-          postId: data.postId,
-          content: data.content,
-          status,
-        },
-      });
-      break;
-
-    default:
-      break;
+    axios.post(`https://${config.services.EVENT_BUS}/events`, {
+      type: 'CommentModerated',
+      data: {
+        id: data.id,
+        postId: data.postId,
+        content: data.content,
+        status,
+      },
+    });
   }
 
   res.send({});

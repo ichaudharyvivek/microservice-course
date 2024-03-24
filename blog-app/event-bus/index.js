@@ -15,21 +15,13 @@ app.post('/events', (req, res) => {
   const event = req.body;
   events.push(event);
 
-  axios
-    .post(`https://${config.services.POST_SERVICE}/events`, event)
-    .catch((err) => console.log(err));
+  axios.post(`https://${config.services.POST_SERVICE}/events`, event);
 
-  axios
-    .post(`https://${config.services.COMMENT_SERVICE}/events`, event)
-    .catch((err) => console.log(err));
+  axios.post(`https://${config.services.COMMENT_SERVICE}/events`, event);
 
-  axios
-    .post(`https://${config.services.QUERY_SERVICE}/events`, event)
-    .catch((err) => console.log(err));
+  axios.post(`https://${config.services.QUERY_SERVICE}/events`, event);
 
-  axios
-    .post(`https://${config.services.MODERATION_SERVICE}/events`, event)
-    .catch((err) => console.log(err));
+  axios.post(`https://${config.services.MODERATION_SERVICE}/events`, event);
 
   res.status(200).json({ status: 'OK' });
 });
