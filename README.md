@@ -1,6 +1,6 @@
 # microservice-course
 
-Microservice course in Node and React
+Microservice course in Node and React using docker and k8.
 
 # Use multiple git accounts from a single machine
 
