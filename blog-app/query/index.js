@@ -14,7 +14,7 @@ app.use(express.urlencoded(true));
     postId:{
       id (postId),
       title,
-      comments: [{id (commentId), content}]
+      comments: [{id (commentId), content, status}]
     }
   }
 
